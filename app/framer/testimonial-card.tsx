@@ -27,13 +27,19 @@ export default function TestimonialCard({
 }: TestimonialCardProps) {
   return (
     <motion.div
-      className={`w-full h-full rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br ${bgGradient} backdrop-blur-xl border ${borderColor} group`}
+      className={`w-full h-full rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br ${bgGradient} backdrop-blur-xl border ${borderColor} transition-all duration-300 group`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
+      whileHover={{
+        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
+      }}
     >
-      <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.08] via-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <div className="absolute inset-0 bg-gradient-to-bl from-slate-950/40 to-transparent pointer-events-none" />
+      {/* Hover glow overlay */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.12] via-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      
+      {/* Base dark gradient */}
+      <div className="absolute inset-0 bg-gradient-to-bl from-slate-950/30 to-transparent pointer-events-none" />
 
       {/* Content */}
       <div className="relative h-full flex flex-col justify-between p-6 md:p-7">

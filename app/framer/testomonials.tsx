@@ -18,7 +18,7 @@ const testimonials = [
     avatarColor: "bg-cyan-400",
     accentColor: "text-cyan-300",
     borderColor: "border-cyan-500/30",
-    size: { width: 340, height: 165 },
+    size: { width: 340, height: 265 },
   },
   {
     id: "B",
@@ -29,7 +29,7 @@ const testimonials = [
     avatarColor: "bg-slate-400",
     accentColor: "text-slate-300",
     borderColor: "border-slate-600/30",
-    size: { width: 320, height: 160 },
+    size: { width: 320, height: 260 },
   },
   {
     id: "C",
@@ -40,7 +40,7 @@ const testimonials = [
     avatarColor: "bg-emerald-400",
     accentColor: "text-emerald-300",
     borderColor: "border-emerald-500/30",
-    size: { width: 340, height: 165 },
+    size: { width: 340, height: 265 },
   },
   {
     id: "D",
@@ -51,7 +51,7 @@ const testimonials = [
     avatarColor: "bg-indigo-400",
     accentColor: "text-indigo-300",
     borderColor: "border-indigo-500/30",
-    size: { width: 330, height: 160 },
+    size: { width: 330, height: 260 },
   },
   {
     id: "E",
@@ -62,7 +62,7 @@ const testimonials = [
     avatarColor: "bg-orange-400",
     accentColor: "text-orange-300",
     borderColor: "border-orange-500/30",
-    size: { width: 350, height: 165 },
+    size: { width: 350, height: 265 },
   },
 ]
 
@@ -75,11 +75,11 @@ const pilePositions = {
 }
 
 const stackPositions = {
-  A: { x: 35, y: 22, rotate: 0, rotateX: 0, rotateY: 0, scale: 1, z: 30 },
-  B: { x: 65, y: 48, rotate: 0, rotateX: 0, rotateY: 0, scale: 1, z: 10 },
-  C: { x: 65, y: 22, rotate: 0, rotateX: 0, rotateY: 0, scale: 1, z: 40 },
-  D: { x: 35, y: 48, rotate: 0, rotateX: 0, rotateY: 0, scale: 1, z: 20 },
-  E: { x: 50, y: 78, rotate: 0, rotateX: 0, rotateY: 0, scale: 1, z: 50 },
+  A: { x: 20, y: 22, rotate: 0, rotateX: 0, rotateY: 0, scale: 1, z: 30 },
+  B: { x: 50, y: 22, rotate: 0, rotateX: 0, rotateY: 0, scale: 1, z: 10 },
+  C: { x: 80, y: 22, rotate: 0, rotateX: 0, rotateY: 0, scale: 1, z: 40 },
+  D: { x: 35, y: 82, rotate: 0, rotateX: 0, rotateY: 0, scale: 1, z: 20 },
+  E: { x: 67, y: 82, rotate: 0, rotateX: 0, rotateY: 0, scale: 1, z: 50 },
 }
 
 // Mobile positions (single column, no hover)
@@ -210,17 +210,6 @@ export default function Testimonials() {
                   ease: EASING,
                   type: "tween",
                 }}
-                whileHover={
-                  !isMobile && showPile
-                    ? {
-                        y: `calc(-50% + ${((pos.y - 50) * (containerRef.current?.clientHeight || 0)) / 100 - 8}px)`,
-                        scale: pos.scale + 0.04,
-                        rotateX: (pos.rotateX || 0) - 2,
-                        zIndex: 100,
-                        transition: { duration: 0.3 },
-                      }
-                    : {}
-                }
               >
                 <TestimonialCard {...testimonial} isMobile={isMobile} />
               </motion.div>

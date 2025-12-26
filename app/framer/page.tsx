@@ -5,6 +5,8 @@ import { FeatureCarouselSection } from "./FeatureCarouselSection";
 import { ScrollCoinStrip } from "./ScrollCoinStrip";
 import Testimonials from "./testomonials";
 import { ProductCtaPanel } from "./ProductCtaPanel";
+import { FaqSection } from "./faq-section";
+import { LandingFooter } from "./footer";
 
 export default function FramerCoinPage() {
     return (
@@ -34,6 +36,8 @@ export default function FramerCoinPage() {
             <FeatureCarouselSection />
             <Testimonials />
             <ProductCtaPanel />
+            <FaqSection />
+            <LandingFooter />
         </main>
     );
 }
