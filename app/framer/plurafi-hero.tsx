@@ -92,7 +92,17 @@ export function PlurafiHero() {
                         </div>
 
                         {/* Floating credit card - top right */}
-                        <div className="absolute top-[2%] right-[-30%] w-44 md:w-96 rotate-[14deg] drop-shadow-2xl pointer-events-auto z-10">
+                        <div
+                            className="
+                                absolute top-[2%]
+                                w-[clamp(8rem,19vw,22rem)]
+                                rotate-[14deg]
+                                drop-shadow-2xl
+                                pointer-events-auto
+                                z-10
+                                right-[clamp(-18%,-10vw,0.75rem)]
+                            "
+                        >
                             <Image
                                 src="/credit-card.png"
                                 alt="Credit card"
@@ -102,8 +112,19 @@ export function PlurafiHero() {
                             />
                         </div>
 
-                        {/* Floating $100 bill - bottom left */}
-                        <div className="absolute bottom-[-12%] left-[-25%] sm:left-[-20%] md:left-[-25%] w-40 sm:w-56 md:w-72 lg:w-136 rotate-[-12deg] drop-shadow-2xl pointer-events-auto float-slow">
+
+
+                        <div
+                            className="
+                                absolute bottom-[-12%]
+                                w-[clamp(10rem,28vw,32rem)]
+                                rotate-[-12deg]
+                                drop-shadow-2xl
+                                pointer-events-auto
+                                float-slow
+                                left-[clamp(-25%,-19vw,0.75rem)]
+                            "
+                        >
                             <Image
                                 src="/100-dollar-bills.png"
                                 alt="One hundred dollar bill"
