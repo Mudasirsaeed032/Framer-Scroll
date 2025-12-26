@@ -3,6 +3,8 @@
 import { PlurafiHero } from "./plurafi-hero";
 import { FeatureCarouselSection } from "./FeatureCarouselSection";
 import { ScrollCoinStrip } from "./ScrollCoinStrip";
+import Testimonials from "./testomonials";
+import { ProductCtaPanel } from "./ProductCtaPanel";
 
 export default function FramerCoinPage() {
     return (
@@ -30,6 +32,8 @@ export default function FramerCoinPage() {
         <main>
             <PlurafiHero />
             <FeatureCarouselSection />
+            <Testimonials />
+            <ProductCtaPanel />
         </main>
     );
 }
