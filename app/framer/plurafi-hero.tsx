@@ -9,7 +9,7 @@ export function PlurafiHero() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.08),transparent_55%)]" />
 
             {/* Scroll space for strips */}
-            <section className="relative h-[260vh] z-0">
+            <section className="relative h-[210vh] z-0">
                 <ScrollCoinStrip
                     coinSrc="/scroll-coin.png"
                     speed={1}
@@ -136,6 +136,16 @@ export function PlurafiHero() {
                     </div>
                 </div>
             </div>
+            <div className="text-center mb-10 md:mb-12">
+                <p className="text-sm text-gray-500 mb-4 text-center">One place for accounts, insights, and peace of mind</p>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-2">Your Money.</h1>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                    <span className="text-white">Clearly </span>
+                    <span className="text-teal-400">Organized</span>
+                    <span className="text-white">.</span>
+                </h1>
+            </div>
+            {/* Hero outro spacing */}
         </main>
     )
 }

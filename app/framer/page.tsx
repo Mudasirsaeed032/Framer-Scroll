@@ -1,6 +1,7 @@
 "use client";
 
 import { PlurafiHero } from "./plurafi-hero";
+import { FeatureCarouselSection } from "./FeatureCarouselSection";
 import { ScrollCoinStrip } from "./ScrollCoinStrip";
 
 export default function FramerCoinPage() {
@@ -26,6 +27,9 @@ export default function FramerCoinPage() {
         //         />
         //     </section>
         // </main>
-        <PlurafiHero />
+        <main>
+            <PlurafiHero />
+            <FeatureCarouselSection />
+        </main>
     );
 }
