@@ -27,19 +27,19 @@ export default function TestimonialCard({
 }: TestimonialCardProps) {
   return (
     <motion.div
-      className={`w-full h-full rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br ${bgGradient} backdrop-blur-xl border ${borderColor} transition-all duration-300 group`}
+      className={`w-full h-full rounded-2xl overflow-hidden bg-card/80 dark:bg-card/60 bg-gradient-to-br ${bgGradient} backdrop-blur-xl border ${borderColor} transition-all duration-300 group shadow-lg dark:shadow-2xl`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       whileHover={{
-        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
+        boxShadow: "0 25px 50px -12px var(--overlay)",
       }}
     >
       {/* Hover glow overlay */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.12] via-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-foreground/[0.06] via-foreground/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       
-      {/* Base dark gradient */}
-      <div className="absolute inset-0 bg-gradient-to-bl from-slate-950/30 to-transparent pointer-events-none" />
+      {/* Base gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-bl from-background/20 dark:from-background/30 to-transparent pointer-events-none" />
 
       {/* Content */}
       <div className="relative h-full flex flex-col justify-between p-6 md:p-7">
@@ -47,13 +47,13 @@ export default function TestimonialCard({
         <div>
           <div className="flex items-center gap-4 mb-5">
             <motion.div
-              className={`w-10 h-10 rounded-full ${avatarColor} flex-shrink-0 shadow-lg`}
+              className={`w-10 h-10 rounded-full ${avatarColor} flex-shrink-0 shadow-md dark:shadow-lg`}
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             />
             <div className="min-w-0 flex-1">
-              <p className="text-xs font-medium text-slate-400 uppercase tracking-wide">From</p>
-              <p className="text-sm md:text-base font-bold text-slate-50 truncate leading-tight">{name}</p>
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">From</p>
+              <p className="text-sm md:text-base font-bold text-foreground truncate leading-tight">{name}</p>
             </div>
           </div>
 
@@ -61,7 +61,7 @@ export default function TestimonialCard({
         </div>
 
         {/* Description */}
-        <p className="text-xs md:text-sm text-slate-300/90 leading-relaxed line-clamp-3">{description}</p>
+        <p className="text-xs md:text-sm text-foreground/70 leading-relaxed line-clamp-3">{description}</p>
       </div>
     </motion.div>
   )

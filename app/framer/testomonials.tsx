@@ -14,10 +14,10 @@ const testimonials = [
     name: "Kathy Pacheco",
     title: "Adulting made easy!",
     description: "Easily, truly financial sidekick. Budgets, goals, and expenses – all in one place.",
-    bgGradient: "from-cyan-500/20 to-cyan-600/10",
-    avatarColor: "bg-cyan-400",
-    accentColor: "text-cyan-300",
-    borderColor: "border-cyan-500/30",
+    bgGradient: "from-cyan-500/20 to-cyan-600/5 dark:from-cyan-500/20 dark:to-cyan-600/10",
+    avatarColor: "bg-cyan-500",
+    accentColor: "text-cyan-600 dark:text-cyan-300",
+    borderColor: "border-cyan-400/40 dark:border-cyan-500/30",
     size: { width: 340, height: 265 },
   },
   {
@@ -25,10 +25,10 @@ const testimonials = [
     name: "Rodger Struck",
     title: "My financial superhero!",
     description: "Simple, intuitive money management. Inclusive budgeting and planning are now streamlined.",
-    bgGradient: "from-slate-700/15 to-slate-800/10",
-    avatarColor: "bg-slate-400",
-    accentColor: "text-slate-300",
-    borderColor: "border-slate-600/30",
+    bgGradient: "from-slate-400/20 to-slate-500/5 dark:from-slate-700/15 dark:to-slate-800/10",
+    avatarColor: "bg-slate-500",
+    accentColor: "text-slate-600 dark:text-slate-300",
+    borderColor: "border-slate-400/40 dark:border-slate-600/30",
     size: { width: 320, height: 260 },
   },
   {
@@ -36,10 +36,10 @@ const testimonials = [
     name: "Kelly Pearson",
     title: "Building made easy!",
     description: "Financial independence feels achievable. Goals and milestones are within my reach.",
-    bgGradient: "from-emerald-500/20 to-emerald-600/10",
-    avatarColor: "bg-emerald-400",
-    accentColor: "text-emerald-300",
-    borderColor: "border-emerald-500/30",
+    bgGradient: "from-emerald-500/20 to-emerald-600/5 dark:from-emerald-500/20 dark:to-emerald-600/10",
+    avatarColor: "bg-emerald-500",
+    accentColor: "text-emerald-600 dark:text-emerald-300",
+    borderColor: "border-emerald-400/40 dark:border-emerald-500/30",
     size: { width: 340, height: 265 },
   },
   {
@@ -47,10 +47,10 @@ const testimonials = [
     name: "Bradley Lawler",
     title: "Taking up with Easily",
     description: "Powerful features without complexity. Financial management is finally intuitive.",
-    bgGradient: "from-indigo-500/15 to-indigo-600/10",
-    avatarColor: "bg-indigo-400",
-    accentColor: "text-indigo-300",
-    borderColor: "border-indigo-500/30",
+    bgGradient: "from-indigo-500/20 to-indigo-600/5 dark:from-indigo-500/15 dark:to-indigo-600/10",
+    avatarColor: "bg-indigo-500",
+    accentColor: "text-indigo-600 dark:text-indigo-300",
+    borderColor: "border-indigo-400/40 dark:border-indigo-500/30",
     size: { width: 330, height: 260 },
   },
   {
@@ -58,10 +58,10 @@ const testimonials = [
     name: "Kurt Batchler",
     title: "Smashing goals with Easily!",
     description: "Simple tracking for financial wins and expenses. My go-to for leveling up!",
-    bgGradient: "from-orange-500/20 to-orange-600/10",
-    avatarColor: "bg-orange-400",
-    accentColor: "text-orange-300",
-    borderColor: "border-orange-500/30",
+    bgGradient: "from-orange-500/20 to-orange-600/5 dark:from-orange-500/20 dark:to-orange-600/10",
+    avatarColor: "bg-orange-500",
+    accentColor: "text-orange-600 dark:text-orange-300",
+    borderColor: "border-orange-400/40 dark:border-orange-500/30",
     size: { width: 350, height: 265 },
   },
 ]
@@ -129,12 +129,12 @@ export default function Testimonials() {
   const duration = getTransitionDuration()
 
   return (
-    <section className="relative w-full min-h-screen bg-background py-20 md:py-32 flex flex-col items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/0 via-slate-950/20 to-slate-950/60 pointer-events-none" />
+    <section className="relative w-full min-h-screen bg-background-secondary py-20 md:py-32 flex flex-col items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/30 to-background/60 dark:from-slate-950/0 dark:via-slate-950/20 dark:to-slate-950/60 pointer-events-none" />
       <div
-        className="absolute inset-0 bg-radial-gradient pointer-events-none opacity-40"
+        className="absolute inset-0 pointer-events-none opacity-30 dark:opacity-40"
         style={{
-          backgroundImage: "radial-gradient(circle at 50% 50%, rgba(6,182,212,0.05) 0%, transparent 70%)",
+          backgroundImage: "radial-gradient(circle at 50% 50%, oklch(0.60 0.06 195 / 0.08) 0%, transparent 70%)",
         }}
       />
 
@@ -144,7 +144,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-xs md:text-sm font-semibold tracking-[0.15em] text-cyan-400/80 uppercase mb-6"
+          className="text-xs md:text-sm font-semibold tracking-[0.15em] text-secondary/80 uppercase mb-6"
         >
           Testimonials
         </motion.p>
@@ -153,7 +153,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-50 leading-[1.15] tracking-tight mb-6"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.15] tracking-tight mb-6"
         >
           What users
           <br className="hidden md:block" />
@@ -164,7 +164,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-sm md:text-base text-slate-400 leading-relaxed"
+          className="text-sm md:text-base text-muted-foreground leading-relaxed"
         >
           Hover to organize cards and see what makes us loved by thousands
         </motion.p>
@@ -179,7 +179,7 @@ export default function Testimonials() {
           onFocus={() => !isMobile && setIsPile(false)}
           onBlur={() => !isMobile && setIsPile(true)}
           tabIndex={0}
-          className="relative w-full h-96 md:h-[500px] cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400/50 rounded-2xl transition-all duration-300"
+          className="relative w-full h-96 md:h-[500px] cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary/50 rounded-2xl transition-all duration-300"
           style={{ perspective: "1200px" }}
         >
           {testimonials.map((testimonial) => {

@@ -31,14 +31,14 @@ const supportLinks: FooterLink[] = [
 function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) {
   return (
     <div className="w-full">
-      <h4 className="text-lg sm:text-xl font-semibold text-orange-400">{title}</h4>
-      <div className="mt-3 h-px w-full bg-white/25" />
-      <ul className="mt-6 space-y-4 text-white/70">
+      <h4 className="text-lg sm:text-xl font-semibold text-primary">{title}</h4>
+      <div className="mt-3 h-px w-full bg-foreground/25" />
+      <ul className="mt-6 space-y-4 text-foreground/70">
         {links.map((l) => (
           <li key={l.label}>
             <Link
               href={l.href}
-              className="transition-colors hover:text-white"
+              className="transition-colors hover:text-foreground"
             >
               {l.label}
             </Link>
@@ -51,9 +51,9 @@ function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) 
 
 export function LandingFooter() {
   return (
-    <footer className="relative w-full bg-[#0B0B0E] pt-24 pb-16">
+    <footer className="relative w-full bg-background-tertiary pt-24 pb-16">
       {/* subtle vignette like your page */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,oklch(0.60_0.16_45/0.04),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),transparent_60%)]" />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[420px_1fr] lg:items-start">
@@ -63,14 +63,14 @@ export function LandingFooter() {
               rounded-3xl
             "
           >
-            <h3 className="text-2xl font-semibold text-orange-400">
+            <h3 className="text-2xl font-semibold text-primary">
               Get in Touch
             </h3>
 
             <div className="mt-10 space-y-10">
               {/* <div className="flex gap-5">
-                <MapPin className="mt-1 h-6 w-6 text-white/60" />
-                <p className="text-lg leading-relaxed text-white/70">
+                <MapPin className="mt-1 h-6 w-6 text-foreground/60" />
+                <p className="text-lg leading-relaxed text-foreground/70">
                   8819 Ohio St. South Gate,
                   <br />
                   CA 90280
@@ -78,13 +78,13 @@ export function LandingFooter() {
               </div> */}
 
               <div className="flex gap-5">
-                <Mail className="mt-1 h-6 w-6 text-white/60" />
-                <p className="text-lg text-white/70">hello@finviro.app</p>
+                <Mail className="mt-1 h-6 w-6 text-foreground/60" />
+                <p className="text-lg text-foreground/70">hello@finviro.app</p>
               </div>
 
               <div className="flex gap-5">
-                <Phone className="mt-1 h-6 w-6 text-white/60" />
-                <p className="text-lg text-white/70">+1 123-456-7891</p>
+                <Phone className="mt-1 h-6 w-6 text-foreground/60" />
+                <p className="text-lg text-foreground/70">+1 123-456-7891</p>
               </div>
             </div>
           </div>

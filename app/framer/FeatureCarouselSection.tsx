@@ -95,21 +95,22 @@ export function FeatureCarouselSection() {
   const step = steps[active];
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#0B0B0E] py-12 md:py-28 overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06),transparent_62%)]" />
+    <section ref={sectionRef} className="relative w-full bg-background-secondary py-12 md:py-28 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,oklch(0.60_0.16_45/0.04),transparent_62%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06),transparent_62%)]" />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           style={{ opacity: cardOpacity, scale: cardScale, y: cardY }}
           className="
             relative overflow-hidden rounded-[2.25rem]
-            border border-white/10
-            shadow-[0_30px_90px_rgba(0,0,0,0.55)]
-            bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.08),transparent_55%)]
+            border border-border/30 dark:border-border/20
+            shadow-lg dark:shadow-[0_30px_90px_rgba(0,0,0,0.55)]
+            bg-card
+            bg-[radial-gradient(ellipse_at_top,oklch(0.60_0.16_45/0.04),transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.08),transparent_55%)]
           "
         >
-          <div className="pointer-events-none absolute inset-0 opacity-70 bg-[radial-gradient(ellipse_at_center,rgba(232,140,90,0.45),transparent_55%)]" />
-          <div className="pointer-events-none absolute inset-0 opacity-60 bg-[radial-gradient(ellipse_at_left,rgba(90,200,190,0.25),transparent_55%)]" />
+          <div className="pointer-events-none absolute inset-0 opacity-40 dark:opacity-70 bg-[radial-gradient(ellipse_at_center,oklch(0.72_0.13_50/0.45),transparent_55%)]" />
+          <div className="pointer-events-none absolute inset-0 opacity-30 dark:opacity-60 bg-[radial-gradient(ellipse_at_left,oklch(0.59_0.04_196/0.25),transparent_55%)]" />
 
           <div className="relative grid grid-cols-1 md:grid-cols-[5.75rem_1fr_26.875rem] gap-10 md:gap-8 px-6 sm:px-8 md:px-10 py-10 sm:py-12 md:py-14">
             {/* Left icon rail */}
@@ -119,10 +120,10 @@ export function FeatureCarouselSection() {
             >
               {steps.map((s, i) => {
                 const isActive = i === active;
-                const AccentRing = s.accent === "teal" ? "ring-teal-300/30" : "ring-[#E88C5A]/30";
-                const ActiveBg = s.accent === "teal" ? "bg-teal-600/60" : "bg-[#E88C5A]/60";
-                const ActiveIcon = s.accent === "teal" ? "text-teal-100" : "text-orange-950";
-                const InactiveIcon = "text-white/40";
+                const AccentRing = s.accent === "teal" ? "ring-secondary/30" : "ring-primary/30";
+                const ActiveBg = s.accent === "teal" ? "bg-secondary/60" : "bg-primary/60";
+                const ActiveIcon = s.accent === "teal" ? "text-secondary-foreground" : "text-primary-foreground";
+                const InactiveIcon = "text-foreground/40";
 
                 return (
                   <button
@@ -138,7 +139,7 @@ export function FeatureCarouselSection() {
                         "transition-all duration-300",
                         isActive
                           ? `${ActiveBg} ring-4 ${AccentRing} scale-[1.05] shadow-[0_10px_30px_rgba(0,0,0,0.45)]`
-                          : "bg-white/5 hover:bg-white/8 ring-1 ring-white/10",
+                          : "bg-foreground/5 hover:bg-foreground/8 ring-1 ring-border/20",
                       ].join(" ")}
                     >
                       <s.Icon className={["h-7 w-7 transition-colors duration-300", isActive ? ActiveIcon : InactiveIcon].join(" ")} />
@@ -148,7 +149,7 @@ export function FeatureCarouselSection() {
                       <div
                         className={[
                           "pointer-events-none absolute inset-0 -z-10 blur-xl opacity-70",
-                          s.accent === "teal" ? "bg-teal-400/25" : "bg-[#E88C5A]/25",
+                          s.accent === "teal" ? "bg-secondary/25" : "bg-primary/25",
                         ].join(" ")}
                       />
                     )}
@@ -167,12 +168,12 @@ export function FeatureCarouselSection() {
                   exit={{ opacity: 0, y: -10, filter: "blur(6px)" }}
                   transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <h2 className="whitespace-pre-line font-extrabold tracking-wide text-white/70 leading-[1.05]
+                  <h2 className="whitespace-pre-line font-extrabold tracking-wide text-foreground/70 leading-[1.05]
                     text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
                     {step.title}
                   </h2>
 
-                  <p className="mt-5 sm:mt-6 whitespace-pre-line text-sm sm:text-base md:text-lg text-white/55 leading-relaxed max-w-[44ch]">
+                  <p className="mt-5 sm:mt-6 whitespace-pre-line text-sm sm:text-base md:text-lg text-foreground/55 leading-relaxed max-w-[44ch]">
                     {step.desc}
                   </p>
                 </motion.div>
@@ -183,7 +184,7 @@ export function FeatureCarouselSection() {
             <motion.div style={{ x: phoneX, opacity: phoneOpacity, scale: phoneScale }} className="relative flex items-center justify-center">
               <div className="relative w-[min(86vw,22.5rem)] md:w-[22.5rem]">
                 <div className="absolute -inset-6 rounded-[2.25rem] bg-black/35 blur-2xl" />
-                <div className="relative rounded-[1.75rem] bg-[#0B0B0E]/60 shadow-[0_25px_80px_rgba(0,0,0,0.6)] overflow-hidden">
+                <div className="relative rounded-[1.75rem] bg-background/60 shadow-[0_25px_80px_rgba(0,0,0,0.6)] overflow-hidden">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={step.key + "-phone"}
@@ -207,7 +208,7 @@ export function FeatureCarouselSection() {
               </div>
 
               {/* Mobile icon rail */}
-              <div className="md:hidden absolute -bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-black/35 backdrop-blur rounded-full border border-white/10 px-3 py-2">
+              <div className="md:hidden absolute -bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-black/35 backdrop-blur rounded-full border border-border/20 px-3 py-2">
                 {steps.map((s, i) => {
                   const isActive = i === active;
                   const Icon = s.Icon;
@@ -215,11 +216,11 @@ export function FeatureCarouselSection() {
                     <button
                       key={s.key}
                       onClick={() => setActive(i)}
-                      className={["h-10 w-10 rounded-full flex items-center justify-center transition", isActive ? "bg-white/12" : "bg-white/5"].join(" ")}
+                      className={["h-10 w-10 rounded-full flex items-center justify-center transition", isActive ? "bg-foreground/12" : "bg-foreground/5"].join(" ")}
                       type="button"
                       aria-label={`Go to slide ${i + 1}`}
                     >
-                      <Icon className={["h-5 w-5", isActive ? "text-white/80" : "text-white/40"].join(" ")} />
+                      <Icon className={["h-5 w-5", isActive ? "text-foreground/80" : "text-foreground/40"].join(" ")} />
                     </button>
                   );
                 })}

@@ -4,9 +4,9 @@ import Image from "next/image";
 
 export function StayUpdatedSection() {
   return (
-    <section className="relative w-full bg-[#0B0B0E] py-20 md:py-24 overflow-hidden">
+    <section className="relative w-full bg-background py-20 md:py-24 overflow-hidden">
       {/* subtle vignette */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06),transparent_65%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,oklch(0.60_0.16_45/0.05),transparent_65%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06),transparent_65%)]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="grid items-center gap-12 md:grid-cols-2">
@@ -28,11 +28,11 @@ export function StayUpdatedSection() {
 
           {/* Right: Content + form */}
           <div className="relative">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white/80">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground/80">
               STAY UPDATED
             </h2>
 
-            <p className="mt-3 text-sm md:text-base text-teal-300/75 max-w-xl">
+            <p className="mt-3 text-sm md:text-base text-secondary/75 max-w-xl">
               Get weekly tips, insights, and exclusive offers delivered to your inbox
             </p>
 
@@ -47,14 +47,14 @@ export function StayUpdatedSection() {
                   className="
                     w-full h-12
                     rounded-full
-                    bg-white/5
-                    border border-white/15
+                    bg-foreground/5
+                    border border-border/30
                     px-5
-                    text-sm text-white/80
-                    placeholder:text-white/40
+                    text-sm text-foreground/80
+                    placeholder:text-foreground/40
                     outline-none
-                    focus:border-teal-300/40
-                    focus:ring-2 focus:ring-teal-300/15
+                    focus:border-secondary/40
+                    focus:ring-2 focus:ring-secondary/15
                     transition
                   "
                 />
@@ -67,9 +67,9 @@ export function StayUpdatedSection() {
                   rounded-full
                   px-8
                   text-sm font-semibold
-                  text-black
-                  bg-gradient-to-r from-[#E88C5A] to-[#D57A4A]
-                  shadow-[0_18px_50px_rgba(0,0,0,0.55)]
+                  text-primary-foreground
+                  bg-gradient-to-r from-primary to-primary/85
+                  shadow-md dark:shadow-[0_18px_50px_rgba(0,0,0,0.55)]
                   hover:opacity-95
                   transition
                   whitespace-nowrap

@@ -2,11 +2,12 @@
 
 import Image from "next/image"
 import { ScrollCoinStrip } from "./ScrollCoinStrip"
+import { ThemeToggle } from "./theme-toggle"
 
 export function PlurafiHero() {
     return (
-        <main className="relative w-full overflow-hidden bg-[#0B0B0E] ">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.08),transparent_55%)]" />
+        <main className="relative w-full overflow-hidden bg-background">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,oklch(0.60_0.16_45/0.06),transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.08),transparent_55%)]" />
 
             {/* Scroll space for strips */}
             <section className="relative min-h-[140vh] sm:min-h-[180vh] lg:min-h-[220vh] z-0">
@@ -31,32 +32,33 @@ export function PlurafiHero() {
             {/* Hero content container - overlays the scroll space */}
             <div className="absolute top-0 left-0 right-0 min-h-screen flex flex-col z-10 pointer-events-none">
                 {/* Navbar */}
-                <nav className="sticky top-0 z-50 pointer-events-auto bg-gradient-to-b from-[#0B0B0E] to-transparent">
+                <nav className="sticky top-0 z-50 pointer-events-auto bg-gradient-to-b from-background to-transparent">
                     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6 flex items-center justify-between">
                         {/* Logo */}
-                        <div className="text-xl font-bold text-white">
-                            FinViro<span className="text-orange-500">.</span>
+                        <div className="text-xl font-bold text-foreground">
+                            FinViro<span className="text-primary">.</span>
                         </div>
 
                         {/* Center nav */}
-                        <div className="hidden md:flex gap-8 text-sm text-gray-400">
-                            <a href="#" className="hover:text-white transition">
+                        <div className="hidden md:flex gap-8 text-sm text-muted-foreground">
+                            <a href="#" className="hover:text-foreground transition">
                                 Features
                             </a>
-                            <a href="#" className="hover:text-white transition">
+                            <a href="#" className="hover:text-foreground transition">
                                 Pricing
                             </a>
-                            <a href="#" className="hover:text-white transition">
+                            <a href="#" className="hover:text-foreground transition">
                                 FAQ's
                             </a>
                         </div>
 
                         {/* Right side */}
                         <div className="flex items-center gap-4 pointer-events-auto">
-                            <a href="#" className="text-sm text-gray-400 hover:text-white">
+                            <ThemeToggle />
+                            <a href="#" className="text-sm text-muted-foreground hover:text-foreground">
                                 Login
                             </a>
-                            <button className="px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white text-sm rounded-full transition">
+                            <button className="px-6 py-2 bg-primary hover:bg-primary/90 text-primary-foreground text-sm rounded-full transition">
                                 Signup
                             </button>
                         </div>
@@ -66,15 +68,15 @@ export function PlurafiHero() {
                 {/* Hero section */}
                 <div className="flex-1 relative flex flex-col items-center justify-center px-4 sm:px-6 pt-[4vh] sm:pt-[8vh] md:pt-[10vh]">
                     {/* Eyebrow */}
-                    <p className="text-sm text-gray-500 mb-4 text-center">One place for accounts, insights, and peace of mind</p>
+                    <p className="text-sm text-muted-foreground mb-4 text-center">One place for accounts, insights, and peace of mind</p>
 
                     {/* Main heading */}
                     <div className="text-center mb-8 md:mb-12">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-2">Your Money.</h1>
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight mb-2">Your Money.</h1>
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-                            <span className="text-white">Clearly </span>
-                            <span className="text-teal-400">Organized</span>
-                            <span className="text-white">.</span>
+                            <span className="text-foreground">Clearly </span>
+                            <span className="text-secondary">Organized</span>
+                            <span className="text-foreground">.</span>
                         </h1>
                     </div>
 
@@ -142,18 +144,18 @@ export function PlurafiHero() {
             <section className="relative z-10 px-4 sm:px-6">
                 <div className="mx-auto max-w-6xl pb-10 sm:pb-14 md:pb-20">
                     <div className="text-center">
-                        <p className="text-xs sm:text-sm text-gray-500 mb-3">
+                        <p className="text-xs sm:text-sm text-muted-foreground mb-3">
                             One place for accounts, insights, and peace of mind
                         </p>
 
-                        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-1">
+                        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-1">
                             Your Money.
                         </h1>
 
                         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                            <span className="text-white">Clearly </span>
-                            <span className="text-teal-400">Organized</span>
-                            <span className="text-white">.</span>
+                            <span className="text-foreground">Clearly </span>
+                            <span className="text-secondary">Organized</span>
+                            <span className="text-foreground">.</span>
                         </h1>
                     </div>
                 </div>
