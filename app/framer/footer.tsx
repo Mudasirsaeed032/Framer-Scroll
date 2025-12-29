@@ -68,23 +68,23 @@ export function LandingFooter() {
             </h3>
 
             <div className="mt-10 space-y-10">
-              <div className="flex gap-5">
+              {/* <div className="flex gap-5">
                 <MapPin className="mt-1 h-6 w-6 text-white/60" />
                 <p className="text-lg leading-relaxed text-white/70">
                   8819 Ohio St. South Gate,
                   <br />
                   CA 90280
                 </p>
-              </div>
+              </div> */}
 
               <div className="flex gap-5">
                 <Mail className="mt-1 h-6 w-6 text-white/60" />
-                <p className="text-lg text-white/70">ourstudio@hello.com</p>
+                <p className="text-lg text-white/70">hello@finviro.app</p>
               </div>
 
               <div className="flex gap-5">
                 <Phone className="mt-1 h-6 w-6 text-white/60" />
-                <p className="text-lg text-white/70">+1 386-688-3295</p>
+                <p className="text-lg text-white/70">+1 123-456-7891</p>
               </div>
             </div>
           </div>
