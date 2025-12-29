@@ -9,10 +9,10 @@ export function PlurafiHero() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.08),transparent_55%)]" />
 
             {/* Scroll space for strips */}
-            <section className="relative h-[220vh] z-0">
+            <section className="relative min-h-[140vh] sm:min-h-[180vh] lg:min-h-[220vh] z-0">
                 <ScrollCoinStrip
                     coinSrc="/scroll-coin.png"
-                    speed={0.75}
+                    speed={0.8}
                     topOffset="clamp(30vh, 60vh, 100vh)"
                     wrapperHeightClass="h-[40vh]"
                     stripAngleDeg={13}
@@ -32,7 +32,7 @@ export function PlurafiHero() {
             <div className="absolute top-0 left-0 right-0 min-h-screen flex flex-col z-10 pointer-events-none">
                 {/* Navbar */}
                 <nav className="sticky top-0 z-50 pointer-events-auto bg-gradient-to-b from-[#0B0B0E] to-transparent">
-                    <div className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+                    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6 flex items-center justify-between">
                         {/* Logo */}
                         <div className="text-xl font-bold text-white">
                             FinViro<span className="text-orange-500">.</span>
@@ -64,14 +64,14 @@ export function PlurafiHero() {
                 </nav>
 
                 {/* Hero section */}
-                <div className="flex-1 relative flex flex-col items-center justify-center px-6 pt-[10vh]">
+                <div className="flex-1 relative flex flex-col items-center justify-center px-4 sm:px-6 pt-[4vh] sm:pt-[8vh] md:pt-[10vh]">
                     {/* Eyebrow */}
                     <p className="text-sm text-gray-500 mb-4 text-center">One place for accounts, insights, and peace of mind</p>
 
                     {/* Main heading */}
-                    <div className="text-center mb-10 md:mb-12">
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-2">Your Money.</h1>
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                    <div className="text-center mb-8 md:mb-12">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-2">Your Money.</h1>
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                             <span className="text-white">Clearly </span>
                             <span className="text-teal-400">Organized</span>
                             <span className="text-white">.</span>
@@ -94,13 +94,14 @@ export function PlurafiHero() {
                         {/* Floating credit card - top right */}
                         <div
                             className="
+                                hidden sm:block
                                 absolute top-[2%]
-                                w-[clamp(8rem,19vw,22rem)]
+                                w-[clamp(6rem,18vw,22rem)]
                                 rotate-[14deg]
                                 drop-shadow-2xl
                                 pointer-events-auto
                                 z-10
-                                right-[clamp(-18%,-10vw,0.75rem)]
+                                right-[clamp(-15%,-8vw,0.5rem)]
                             "
                         >
                             <Image
@@ -116,13 +117,14 @@ export function PlurafiHero() {
 
                         <div
                             className="
+                                hidden sm:block
                                 absolute bottom-[-12%]
-                                w-[clamp(10rem,28vw,32rem)]
+                                w-[clamp(8rem,26vw,32rem)]
                                 rotate-[-12deg]
                                 drop-shadow-2xl
                                 pointer-events-auto
                                 float-slow
-                                left-[clamp(-25%,-19vw,0.75rem)]
+                                left-[clamp(-20%,-15vw,0.5rem)]
                             "
                         >
                             <Image
@@ -136,15 +138,26 @@ export function PlurafiHero() {
                     </div>
                 </div>
             </div>
-            <div className="text-center mb-10 md:mb-12">
-                <p className="text-sm text-gray-500 mb-4 text-center">One place for accounts, insights, and peace of mind</p>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-2">Your Money.</h1>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                    <span className="text-white">Clearly </span>
-                    <span className="text-teal-400">Organized</span>
-                    <span className="text-white">.</span>
-                </h1>
-            </div>
+            {/* Outro headline (optional) */}
+            <section className="relative z-10 px-4 sm:px-6">
+                <div className="mx-auto max-w-6xl pb-10 sm:pb-14 md:pb-20">
+                    <div className="text-center">
+                        <p className="text-xs sm:text-sm text-gray-500 mb-3">
+                            One place for accounts, insights, and peace of mind
+                        </p>
+
+                        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-1">
+                            Your Money.
+                        </h1>
+
+                        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                            <span className="text-white">Clearly </span>
+                            <span className="text-teal-400">Organized</span>
+                            <span className="text-white">.</span>
+                        </h1>
+                    </div>
+                </div>
+            </section>
             {/* Hero outro spacing */}
         </main>
     )

@@ -11,10 +11,10 @@ export function StayUpdatedSection() {
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="grid items-center gap-12 md:grid-cols-2">
           {/* Left: Visual block */}
-          <div className="relative min-h-[260px] md:min-h-[320px]">
+          <div className="relative min-h-[200px] md:min-h-[320px]">
 
             {/* Cards foreground */}
-            <div className="relative z-10 w-[520px] max-w-[92%]">
+            <div className="relative z-10 w-full max-w-[520px]">
               <Image
                 src="/cards.png"
                 alt="Credit cards"
@@ -28,7 +28,7 @@ export function StayUpdatedSection() {
 
           {/* Right: Content + form */}
           <div className="relative">
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white/80">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white/80">
               STAY UPDATED
             </h2>
 

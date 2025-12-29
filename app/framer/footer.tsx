@@ -30,8 +30,8 @@ const supportLinks: FooterLink[] = [
 
 function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) {
   return (
-    <div className="min-w-[220px]">
-      <h4 className="text-xl font-semibold text-orange-400">{title}</h4>
+    <div className="w-full">
+      <h4 className="text-lg sm:text-xl font-semibold text-orange-400">{title}</h4>
       <div className="mt-3 h-px w-full bg-white/25" />
       <ul className="mt-6 space-y-4 text-white/70">
         {links.map((l) => (
@@ -55,7 +55,7 @@ export function LandingFooter() {
       {/* subtle vignette like your page */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),transparent_60%)]" />
 
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[420px_1fr] lg:items-start">
           {/* Left contact card */}
           <div

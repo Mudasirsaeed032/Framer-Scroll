@@ -40,7 +40,7 @@ export function FaqSection() {
         <div className="grid gap-10 md:grid-cols-[1fr_1.15fr] md:items-center">
           {/* Left */}
           <div>
-            <h2 className="text-[40px] leading-[1.05] md:text-[56px] font-extrabold tracking-tight text-white/80">
+            <h2 className="text-3xl sm:text-4xl leading-[1.05] md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white/80">
               GOT ANY
               <br />
               QUESTIONS?
