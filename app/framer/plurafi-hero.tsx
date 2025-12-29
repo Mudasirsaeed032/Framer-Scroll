@@ -9,10 +9,10 @@ export function PlurafiHero() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.08),transparent_55%)]" />
 
             {/* Scroll space for strips */}
-            <section className="relative h-[210vh] z-0">
+            <section className="relative h-[220vh] z-0">
                 <ScrollCoinStrip
                     coinSrc="/scroll-coin.png"
-                    speed={1}
+                    speed={0.75}
                     topOffset="clamp(30vh, 60vh, 100vh)"
                     wrapperHeightClass="h-[40vh]"
                     stripAngleDeg={13}
@@ -20,10 +20,10 @@ export function PlurafiHero() {
 
                 <ScrollCoinStrip
                     coinSrc="/scroll-coin.png"
-                    speed={2}
+                    speed={1}
                     topOffset="clamp(0vh, 0vh, 0vh)"
                     wrapperHeightClass="h-[20vh]"
-                    stripAngleDeg={13}
+                    stripAngleDeg={-13}
                     offset={["start end", "end start"]}
                 />
             </section>

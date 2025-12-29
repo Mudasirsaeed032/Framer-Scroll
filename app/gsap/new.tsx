@@ -2,7 +2,14 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+    motion,
+    useScroll,
+    useTransform,
+    useMotionValue,
+    useMotionValueEvent,
+    useVelocity,
+} from "framer-motion";
 import { useResizeObserver } from "./useResizeObserver";
 import { computeCenterlineFromStrip } from "./math";
 import { getCoinSize, getStripHeight } from "./config";
@@ -95,23 +102,71 @@ export function ScrollCoinStrip({
         return { start, end, pathLen };
     }, [stripMetrics, stripAngleDeg, isReverse]);
 
-    const fastProgress = useTransform(scrollYProgress, (p) =>
+    const rawProgress = useTransform(scrollYProgress, (p) =>
         Math.min(1, Math.max(0, p * speed))
     );
 
-    const x = useTransform(fastProgress, (p) => start.x + (end.x - start.x) * p);
-    const y = useTransform(fastProgress, (p) => start.y + (end.y - start.y) * p);
-    const rotate = useTransform(fastProgress, (p) => {
+    // ---- Smooth scroll input (Option B) ----
+    // Raw progress is "truth" (Framer's mapping). We'll filter it for visuals only.
+    const pRaw = rawProgress;
+
+    // Velocity tells us when the user is actively scrolling vs stopped.
+    const pVel = useVelocity(pRaw);
+
+    // Smoothed progress motion value (what you use everywhere instead of pRaw)
+    const pSmooth = useMotionValue(0);
+
+    // Keep latest raw target in a ref
+    const targetRef = useRef(0);
+    useMotionValueEvent(pRaw, "change", (v) => {
+        targetRef.current = v;
+    });
+
+    // rAF smoothing loop with snap-on-stop
+    useEffect(() => {
+        let raf = 0;
+        let lastT = performance.now();
+
+        const tick = (t: number) => {
+            const dt = Math.max(0.001, (t - lastT) / 1000);
+            lastT = t;
+
+            const target = targetRef.current;
+            const current = pSmooth.get();
+            const vel = Math.abs(pVel.get());
+
+            // When scroll stops (velocity tiny), snap to target to avoid "laggy" feel.
+            if (vel < 0.01) {
+                pSmooth.set(target);
+            } else {
+                // Low-pass filter: higher "follow" when scrolling fast, lower when slow.
+                // This preserves responsiveness but removes wheel step jitter.
+                const tau = 0.06; // smaller = tighter tracking (0.04–0.10 is a good range)
+                const alpha = 1 - Math.exp(-dt / tau);
+                pSmooth.set(current + (target - current) * alpha);
+            }
+
+            raf = requestAnimationFrame(tick);
+        };
+
+        raf = requestAnimationFrame(tick);
+        return () => cancelAnimationFrame(raf);
+    }, [pSmooth, pVel]);
+
+    const x = useTransform(pSmooth, (p) => start.x + (end.x - start.x) * p);
+    const y = useTransform(pSmooth, (p) => start.y + (end.y - start.y) * p);
+
+    const rotate = useTransform(pSmooth, (p) => {
         const radius = coinSize / 2;
-        const sign = isReverse ? -1 : 1;
+        const sign = isReverse ? -1 : 1; // reverse travel => reverse roll
         const s = sign * pathLen * p;
         const rad = s / radius;
         return (rad * 180) / Math.PI;
     });
 
-    const lagPx = coinSize * 0.3; // reveal trails behind coin
+    const lagPx = coinSize * 0.9; // reveal trails behind coin
 
-    const revealWidth = useTransform(fastProgress, (p) => {
+    const revealWidth = useTransform(pSmooth, (p) => {
         if (!pathLen) return "0px";
         const w = Math.max(0, p * pathLen - lagPx);
         return `${w}px`;
@@ -163,7 +218,12 @@ export function ScrollCoinStrip({
                                             }),
                                     }}
                                 >
-                                    <div className="h-full flex items-center gap-20 px-12">
+                                    <div
+                                        className={[
+                                            "h-full flex items-center gap-20",
+                                            isReverse ? "flex-row-reverse justify-end pr-12" : "justify-start pl-12",
+                                        ].join(" ")}
+                                    >
                                         {Array.from({ length: 8 }).map((_, i) => (
                                             <Image
                                                 key={i}

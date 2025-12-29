@@ -1,17 +1,19 @@
-import { getBreakpointKey, pathPresets } from "./config";
+// math.ts
+export function computeCenterlineFromStrip(
+  stripCenterX: number,
+  stripCenterY: number,
+  stripWidthPx: number,
+  stripAngleDeg: number
+) {
+  const theta = (stripAngleDeg * Math.PI) / 180;
+  const dirX = Math.cos(theta);
+  const dirY = Math.sin(theta);
 
-export function computePath(sceneW: number, sceneH: number) {
-  if (!sceneW || !sceneH) return { x1: 0, y1: 0, x2: 0, y2: 0, pathLen: 0 };
+  const half = stripWidthPx / 2;
 
-  const bp = getBreakpointKey(sceneW);
-  const cfg = pathPresets[bp];
+  // +dir points to the right for small angles (cos>0), so:
+  const leftEnd = { x: stripCenterX - dirX * half, y: stripCenterY - dirY * half };
+  const rightEnd = { x: stripCenterX + dirX * half, y: stripCenterY + dirY * half };
 
-  const start = { x: sceneW * cfg.start.xPct, y: sceneH * cfg.start.yPct };
-  const end = { x: sceneW * cfg.end.xPct, y: sceneH * cfg.end.yPct };
-
-  const dx = end.x - start.x;
-  const dy = end.y - start.y;
-  const len = Math.hypot(dx, dy);
-
-  return { x1: start.x, y1: start.y, x2: end.x, y2: end.y, pathLen: len };
+  return { leftEnd, rightEnd, pathLen: stripWidthPx };
 }
